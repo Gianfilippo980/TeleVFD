@@ -12,4 +12,5 @@ Contents:
 - comandi.py  A simple utility for sending command codes to the display (used for test purpose only).
 - launcher.sh A little script to automate the execution of the program (a delay is used to aloow for the internet connection time upon reboot), it may be used with cron.
 - test.py     A simple utiity to sned text to the disply for test purposes.
-- structure   A simple leg to hold the M202MD15B, I 3D-printed a pair.
+- structure/  A simple leg to hold the M202MD15B, I 3D-printed a pair.
+- video/      A couple of demonstration videos.
