@@ -14,7 +14,7 @@ def comando (istruzione):
 
     #This function encodes and sends the argoment, it is uused to issue command codes, known codes for the M202MD15B are:
     #15 reset                                           15 reset
-    #16 ignora primo carattere successivo imput         16 Ignores the forst character of the next input
+    #16 ignora primo carattere successivo imput         16 Ignores the first character of the next input
     #20 cursore spento                                  20 Cursor off
     #19 cursore acceso                                  19 Cursor on    
     #17 no scorrimento                                  17 Disable autoscrolling
@@ -31,7 +31,7 @@ comando (31)
 comando (17)
 #No scorrimento                                         Autoscroll off
 comando (20)
-#Niente cursore visibile ma il cursore, anche se inisibile, passa comunque da una riga all'altra.
+#Niente cursore visibile ma il cursore, anche se invisibile, passa comunque da una riga all'altra.
 #No visible cursor, the invisible cursor still jumps from one line to the other when you send 20 chars.
 while True:
     Televideo_24ore=feedparser.parse('http://www.servizitelevideo.rai.it/televideo/pub/rss102.xml')
