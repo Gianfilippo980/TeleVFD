@@ -24,15 +24,9 @@ def comando (istruzione):
     #31 cancella tutto e riporta il cursore in alto     31 Clear screen and reset cursor position (top left)
     #13 torna ad inizio riga                            13 Back to current line start (cursor all left)
 
-vfd=serial.Serial("/dev/ttyS0")
+vfd=serial.Serial("/dev/ttyAMA0")
 #attiva porta seriale                                   Serial open @9600 baud
-comando (31)
-#azzeramento                                            CLear screen
-comando (17)
-#No scorrimento                                         Autoscroll off
-comando (20)
-#Niente cursore visibile ma il cursore, anche se invisibile, passa comunque da una riga all'altra.
-#No visible cursor, the invisible cursor still jumps from one line to the other when you send 20 chars.
+
 while True:
     Televideo_24ore=feedparser.parse('http://www.servizitelevideo.rai.it/televideo/pub/rss102.xml')
     #importa il feed "24 ore non stop" del Televideo    Imports the RSS feed
@@ -44,9 +38,13 @@ while True:
         #j conta i caratteri di ogni notizia che sono gioà stati visualizzati
         #j coults the number of characters of the current elemnt that have already beedn displayed
         while j<len(Televideo_24ore.entries[i].title):
-            comando (13)
-            #riporta il cursore a sinistra qualora fosse finito fuori posto
-            #Just in case something went wrong, sends sursor back to the left
+            comando (31)
+            #azzeramento                                            CLear screen
+            comando (17)
+            #No scorrimento                                         Autoscroll off
+            comando (20)
+            #Niente cursore visibile ma il cursore, anche se invisibile, passa comunque da una riga all'altra.
+            #No visible cursor, the invisible cursor still jumps from one line to the other when you send 20 chars.
             vfd.write (testo.encode("cp437","replace"))
             #ristampare il testo precedente sulla prima riga
             #Display the text from the previous cycle on the first line
